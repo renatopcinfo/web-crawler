@@ -14,8 +14,8 @@ const MagazineLuiza = {
                 const priceHtml = $(element).find('span.price-value').text()
                 
                 const product = {
-                    title: $(element).find("h3.productTitle").text(),
-                    price: priceHtml.trim(),
+                    title: $(element).find("h3.productTitle").text().trim(),
+                    price: priceHtml.replace(/\s/g, ""),
                     provider: this.name
                 }
 

@@ -1,5 +1,6 @@
 const http = require("http")
 const MercadoLivre = require("./services/MercadoLivre")
+const MagazineLuiza = require("./services/MagazineLuiza")
 const Cache = require("./utils/Cache")
 
 const app = http.createServer(async (req, res)=>{
@@ -19,7 +20,8 @@ const app = http.createServer(async (req, res)=>{
         return res.end()
     }
 
-    const products = await MercadoLivre.getProductsByTerm(term);
+    //const products = await MercadoLivre.getProductsByTerm(term);
+    const products = await MagazineLuiza.getProductsByTerm(term);
 
     if(products.error) {
         res.writeHead(503, {'Content-Type': 'application/json; charset=utf-8'})
